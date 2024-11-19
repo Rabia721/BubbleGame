@@ -16,7 +16,7 @@ function bubble(){
 }
 
 // timer
-
+document.querySelector('.boxtimer').innerHTML=0
 function runtime(){
   let timeint = setInterval(() => {
     if(timer >0){
@@ -25,14 +25,16 @@ function runtime(){
 }else
   {
 clearInterval(timer)
+document.querySelector('#startGame').innerHTML=`<h1 class='gameover'>Game Over<h1>`
   }
  }, 1000);
 }
 
 // increseScore
+document.querySelector('.boxscore').innerHTML=0
 function  increseScore(){
-  score += 10
   document.querySelector('.boxscore').innerHTML=score
+  score += 5
 } 
 
 
@@ -41,6 +43,10 @@ document.querySelector('#startGame').addEventListener('click',function (details)
   var clicknum =(Number(details.target.textContent))
   if(clicknum == rn){
     increseScore()
+    getNewHit()
+    bubble()
+
+
   }
     })
 
